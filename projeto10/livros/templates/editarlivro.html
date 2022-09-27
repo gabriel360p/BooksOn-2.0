@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Editar Livro</title>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{%url 'livros:biblioteca'%}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'livros:nvlivro' %}">Novo Livro</a>
+          </li>
+          <li class="breadcrumb-item active">
+            <a href="{% url 'livros:perfil' %}">Perfil</a>
+          </li>
+          <li class="breadcrumb-item active">
+            <a href="{% url 'livros:nvcategoria' %}">Nova Categoria</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="jumbotron">
+            <h2>
+              Olá Mundo!
+            </h2>
+            <p>
+              Com o tempo você percebe que as pessoas são como livros: umas te enganam pela capa e outras te surpreendem pelo conteúdo
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          
+          <form role="form" method="POST" action="{% url 'livros:edtlivro' bookinfos.id%}">
+             {% csrf_token %} 
+            <div class="form-group">
+              <label for="exampleInputEmail1">
+                Titulo
+              </label>
+              <input type="text" placeholder="Naruto" class="form-control" id="exampleInputEmail1" value="{{bookinfos.title}}" name="titulo" />
+            </div>
+            <div class="form-group">
+               
+              <label for="exampleInputPassword1">
+                Autor
+              </label>
+              <input type="text" placeholder="Kishimoto" class="form-control" id="exampleInputPassword1" value="{{bookinfos.author}}" name="autor"/>
+            </div>
+            <div class="form-group">
+              
+              <label for="exampleInputPassword1">
+                Categoria
+              </label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="categoria" value="{{bookinfos.categorie}}"/>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">
+                Preço
+              </label>
+              <input type="text" placeholder="R$0" name="preco" class="form-control" id="exampleInputPassword1" value="{{bookinfos.price}}"/>
+            </div>
+            <div class="form-group">
+
+              <label for="exampleInputPassword1">
+                ID
+              </label>
+              <input type="text" disabled class="form-control" id="exampleInputPassword1" disabled value="{{bookinfos.id}}"/>
+            </div>
+            <div class="form-group">
+
+              <label for="exampleInputPassword1">
+                Fale um Pouco
+              </label>
+              <textarea placeholder="O Livro é sobre.." value="{{bookinfos.text}}" name="texto" class="form-control" id="exampleInputPassword1"></textarea>
+            </div>
+            <div class="form-group">
+            
+            <input type="submit" class="btn btn-primary" value="Editar">
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
