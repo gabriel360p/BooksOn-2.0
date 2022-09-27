@@ -13,7 +13,6 @@ urlpatterns = [
 	path('editarlivro/',views.vieweditarlivro,name="editarlivro"),
 	path('verlivro/',views.viewverlivro,name="verlivro"),
 	path('nvcategoria/',views.viewnvcategoria,name="nvcategoria"),
-	path('soeu/',views.viewsoeu,name="soeu"),
 	path('viewnedicate/<int:id>',views.viewnedicate,name="viewnedicate"),
 
 	path('caduser/',views.caduser,name="caduser"),

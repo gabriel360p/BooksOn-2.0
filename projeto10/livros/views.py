@@ -43,12 +43,6 @@ def viewnedicate(request,id):
 	categorias=tb_book.objects.get(pk=id)
 	return render(request,'edicate.html',{'categoria':categorias})
 
-
-def viewsoeu(request):
-	user=tb_user.objects.all()
-	return render(request,'soeu.html',{'users':user})
-
-
 def caduser(request):
 	if request.method=="POST":
 		gmail=request.POST.get('email')
